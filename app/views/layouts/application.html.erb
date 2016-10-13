@@ -11,6 +11,7 @@
 	<%=render "shared/messages"%>
 	<div class="container">
 		<%= yield %>
-	</dic>
+	</div>
+	<%= debug(params) if Rails.env.eql?("development")%>
 </body>
 </html>

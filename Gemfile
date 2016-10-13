@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '~> 4.2', '>= 4.2.7.1'
 # Use mysql as the database for Active Record
 gem 'mysql2'
+gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 gem 'bootstrap-sass', '~> 3.3.6'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -14,7 +15,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
+gem 'will_paginate', '~> 3.1', '>= 3.1.3'
+gem 'bootstrap-will_paginate', '~> 0.0.10' 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
