@@ -1,5 +1,5 @@
 <h1 align="center">All Bloggers</h1>
-<div align="center">
+<div align="center"> 
 	<%= will_paginate%>
 </div>
 <div align="center">
@@ -14,6 +14,11 @@
 					<li>
 						<small><%= pluralize(user.articles.count,"article") unless user.articles.blank?%></small>
 					</li>
+					<%if logged_in? && current_user.admin?%>
+					<li>
+						<%= link_to "Delete", user_path(user), method: "delete", data: {:confirm=> "Are you sure you want to delete user and all associated articles!!"}%>
+					</li>
+					<%end%>
 				</div>
 			</div>
 		</ul>
