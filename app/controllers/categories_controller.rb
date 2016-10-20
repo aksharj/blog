@@ -12,14 +12,29 @@ class CategoriesController < ApplicationController
         @category = Category.new(category_params)
         if @category.save
             flash[:success] = "category created successfully"
-            redirect_to categories_path
+            redirect_to category_path(@category)
         else
             render 'new'
         end
-    
     end
 
     def show
+        @category = Category.find(params[:id])
+        @category_articles = @category.articles.paginate(page:params[:page],per_page:2)
+    end
+
+    def edit
+        @category = Category.find(params[:id])
+    end
+    
+    def update
+        @category = Category.find(params[:id])
+        if @category.update(category_params)
+            flash[:success] = "category updated successfully"
+            redirect_to categories_path
+        else
+            render 'edit'
+        end
     end
     
     private
