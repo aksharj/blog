@@ -16,6 +16,8 @@ class ArticlesController < ApplicationController
         @article = Article.new(article_params)
         @article.user = current_user
         if @article.save
+            Resque.enqueue(ArticleHighlighter, @article.id)
+            Resque.enqueue(ArticleCorrector, @article.id)
             flash[:success] = "Article Succesfully Created!!!"
             redirect_to article_path(@article)
         else
